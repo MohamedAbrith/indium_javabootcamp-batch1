@@ -8,7 +8,6 @@ public class BinarySearch {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Swap arr[j] and arr[j+1]
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
@@ -23,7 +22,7 @@ public class BinarySearch {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (arr[mid] == key) {
-                return mid; // Element found, return its index
+                return mid; 
             }
             if (arr[mid] < key) {
                 left = mid + 1;
