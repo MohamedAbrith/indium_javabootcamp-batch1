@@ -24,20 +24,22 @@ public class CalculatorMethods {
                 break;
         }
     }
-
     public static int ADD(int a, int b) {
         return a + b;
     }
 
-    public static int SUB(int a, int b) {
+    public static int SUB(int a, int b)
+    {
         return a - b;
     }
 
     public static int MUL(int a, int b) {
+
         return a * b;
     }
 
     public static int DIV(int a, int b) {
+
         return a / b;
     }
 }
