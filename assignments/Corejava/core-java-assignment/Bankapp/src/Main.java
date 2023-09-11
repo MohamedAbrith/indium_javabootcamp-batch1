@@ -9,7 +9,8 @@ public class Main {
         //AccountServiceLinkedList accountService = new AccountServiceLinkedList();
         //AccountServiceTreeMap accountService = new AccountServiceTreeMap();
         //AccountServiceHashMap accountService = new AccountServiceHashMap();
-        AccountServiceHashSet accountService = new AccountServiceHashSet();
+        //AccountServiceHashSet accountService = new AccountServiceHashSet();
+        AccountServiceTreeSet accountService = new AccountServiceTreeSet();
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
