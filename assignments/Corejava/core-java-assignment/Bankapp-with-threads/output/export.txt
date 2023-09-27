@@ -1,1 +1,2 @@
-1,abrith,2000000,deposit
+1,abrith,1000,savings
+1,abrith,200000,deposit

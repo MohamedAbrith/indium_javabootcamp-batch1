@@ -1,3 +1,1 @@
-1,abrith,1200000,savings
-1,Abrith,150000,savings
-2,Mohamed,200000,deposit
+1,abrith,200000,savings
