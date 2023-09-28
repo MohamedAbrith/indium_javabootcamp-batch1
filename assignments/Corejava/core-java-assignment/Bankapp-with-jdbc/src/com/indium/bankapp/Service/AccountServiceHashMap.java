@@ -19,6 +19,7 @@ public class AccountServiceHashMap implements AccountService{
     private int accountIdCounter = 1;
 
     public AccountServiceHashMap(){
+
         accountDao = new AccountDaoJdbc();
     }
 

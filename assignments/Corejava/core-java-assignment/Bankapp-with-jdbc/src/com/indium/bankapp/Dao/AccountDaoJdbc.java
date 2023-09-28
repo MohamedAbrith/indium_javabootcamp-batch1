@@ -25,8 +25,6 @@ public class AccountDaoJdbc implements AccountDao{
                 datasource.setDatabaseName("bankingapp");
                 datasource.setUser("root");
                 datasource.setPassword("Abrith24@");
-
-
                 conn = datasource.getConnection();
                 System.out.println("Connection created successfully. " + conn);
             }
