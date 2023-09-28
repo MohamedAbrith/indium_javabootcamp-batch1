@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface SkillDao {
     public Boolean create(Skill skill);
-//    public List<Skill> getall();
-//    public boolean update(Skill skill);
-//    public boolean delete(int skillID);
+    public boolean update(Skill updatedSkill);
+    public boolean delete(int skillID);
 }

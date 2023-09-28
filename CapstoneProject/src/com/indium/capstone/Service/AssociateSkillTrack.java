@@ -45,25 +45,11 @@ public void addSkillToAssociate(int associateId, Skill skill) {
 }
 
     public void editSkill(int skillId, Skill updatedSkill) {
-        for (Skill skill : skills) {
-            if (skill.getId() == skillId) {
-                skill.setName(updatedSkill.getName());
-                skill.setDescription(updatedSkill.getDescription());
-                skill.setCategory(updatedSkill.getCategory());
-                skill.setExperience(updatedSkill.getExperience());
-                break;
-            }
-        }
-        for (Associates associate : associates) {
-            associate.editSkill(skillId, updatedSkill);
-        }
+        boolean editSkill = skillDao.update(updatedSkill);
     }
 
     public void deleteSkill(int skillId) {
-        skills.removeIf(skill -> skill.getId() == skillId);
-        for (Associates associate : associates) {
-            associate.deleteSkill(skillId);
-        }
+        boolean deleteSkillStatus = skillDao.delete(skillId);
     }
 
     public void viewAssociate(int associateId){

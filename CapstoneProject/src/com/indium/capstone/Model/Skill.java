@@ -7,12 +7,16 @@ public class Skill {
     private String category;
     private int experience;
 
+    private int skillId;
+
+
     public Skill(int id, String name, String description, String category, int experience) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
         this.experience = experience;
+        this.skillId = skillId;
     }
 
     public void viewDetails() {

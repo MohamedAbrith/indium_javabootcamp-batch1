@@ -49,58 +49,38 @@ public class SkillDaoJdbc implements SkillDao {
         }
         return status;
     }
-}
 
-//    public List<Skill> getall() {
-//        List<Skill> skills = new ArrayList<>();
-//        try {
-//            stmt = getConnection().createStatement();
-//            rs = stmt.executeQuery("SELECT * FROM skills");
-//
-//            while (rs.next()) {
-//                int skillId = rs.getInt("skillid");
-//                String name = rs.getString("name");
-//                String description = rs.getString("description");
-//                String category = rs.getString("category");
-//                int experience = rs.getInt("experience");
-//                int id = rs.getInt("id");
-//                skills.add(new Skill(id,name, description,category,experience,skillId));
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return skills;
-//    }
-//
-//    public boolean update(Skill skill) {
-//        boolean status = false;
-//        try {
-//            String query = "UPDATE skills SET name =?,description=?,category=?,experience =? WHERE skillid= ?";
-//            pstmt = getConnection().prepareStatement(query);
-//            pstmt.setString(1,skill.getName());
-//            pstmt.setString(2,skill.getDescription());
-//            pstmt.setString(3, skill.getCategory());
-//            pstmt.setInt(4, skill.getExperience());
-//            pstmt.setInt(5, skill.getSkillId());
-//
-//            status = pstmt.executeUpdate() > 0 ? true : false;
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return status;
-//    }
-//
-//    public boolean delete(int skillID) {
-//        boolean status = false;
-//        try {
-//            stmt = getConnection().createStatement();
-//
-//            String query = "DELETE FROM skills WHERE skillid = " + skillID;
-//
-//            status = stmt.execute(query);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return status;
-//    }
+
+    public boolean update(Skill skill) {
+        boolean status = false;
+        try {
+            String query = "UPDATE skills SET name =?,description=?,category=?,experiance =? WHERE id= ?";
+            pstmt = getConnection().prepareStatement(query);
+            pstmt.setString(1, skill.getName());
+            pstmt.setString(2, skill.getDescription());
+            pstmt.setString(3, skill.getCategory());
+            pstmt.setInt(4, skill.getExperience());
+            pstmt.setInt(5, skill.getId());
+
+            status = pstmt.executeUpdate() > 0 ? true : false;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    public boolean delete(int skillID) {
+        boolean status = false;
+        try {
+            stmt = getConnection().createStatement();
+
+            String query = "DELETE FROM skills WHERE id = " + skillID;
+
+            status = stmt.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+}
