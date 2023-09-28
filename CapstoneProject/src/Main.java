@@ -1,9 +1,7 @@
 import com.indium.capstone.Model.Associates;
 import com.indium.capstone.Model.Skill;
 import com.indium.capstone.Service.AssociateSkillTrack;
-
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         AssociateSkillTrack app = new AssociateSkillTrack();

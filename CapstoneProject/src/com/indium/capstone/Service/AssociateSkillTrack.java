@@ -2,6 +2,8 @@ package com.indium.capstone.Service;
 
 import com.indium.capstone.Dao.AssociatesDao;
 import com.indium.capstone.Dao.AssociatesDaoJdbc;
+import com.indium.capstone.Dao.SkillDao;
+import com.indium.capstone.Dao.SkillDaoJdbc;
 import com.indium.capstone.Model.Associates;
 import com.indium.capstone.Model.Skill;
 
@@ -14,8 +16,11 @@ public class AssociateSkillTrack implements AssociateSkills{
     private List<Associates> associates = new ArrayList<>();
     private List<Skill> skills = new ArrayList<>();
     AssociatesDao associatesDao;
+
+    SkillDao skillDao;
     public AssociateSkillTrack(){
         associatesDao=new AssociatesDaoJdbc();
+        skillDao=new SkillDaoJdbc();
     }
     public void addAssociate(Associates associate) {
         associatesDao.create(associate);
@@ -35,14 +40,9 @@ public class AssociateSkillTrack implements AssociateSkills{
         boolean delete = associatesDao.delete(associateId);
     }
 
-    public void addSkillToAssociate(int associateId, Skill skill) {
-        for (Associates associate : associates) {
-            if (associate.getId() == associateId) {
-                associate.addSkill(skill);
-                break;
-            }
-        }
-    }
+public void addSkillToAssociate(int associateId, Skill skill) {
+    boolean addSkill = skillDao.create(skill);
+}
 
     public void editSkill(int skillId, Skill updatedSkill) {
         for (Skill skill : skills) {
