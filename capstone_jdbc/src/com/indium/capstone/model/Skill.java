@@ -11,7 +11,6 @@ public class Skill {
     private int skillId;
 
     public Skill( String name, String description, String category, int experience) {
-//        this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
@@ -87,18 +86,22 @@ public class Skill {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getDescription() {
+
         return description;
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
 
     public String getCategory() {
+
         return category;
     }
 
@@ -107,10 +110,12 @@ public class Skill {
     }
 
     public int getExperience() {
+
         return experience;
     }
 
     public void setExperience(int experience) {
+
         this.experience = experience;
     }
 }

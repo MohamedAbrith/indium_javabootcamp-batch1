@@ -12,17 +12,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SkillTrackerApp implements SkillTracker{
+public class AssociateSkillImpl implements AssociateSkillI {
     AssociateDao associateDao;
     SkillDao skillDao;
     private List<Associate> associates = new ArrayList<>();
-    private List<Skill> skills = new ArrayList<>();
+    private List<com.indium.capstone.model.Skill> skills = new ArrayList<>();
 
-    public SkillTrackerApp() {
+    public AssociateSkillImpl() {
 
         associateDao = new AssociateDaoJdbcImpl();
         skillDao = new SkillDaoImpl();
@@ -53,12 +52,12 @@ public class SkillTrackerApp implements SkillTracker{
         boolean deleteAssociateStatus = associateDao.delete(associateId);
     }
 
-    public void addSkillToAssociate(int associateId, Skill skill) {
+    public void addSkillToAssociate(int associateId, com.indium.capstone.model.Skill skill) {
 
         boolean addSkillStatus = skillDao.create(skill);
     }
 
-    public void editSkill(int skillId, Skill updatedSkill) {
+    public void editSkill(int skillId, com.indium.capstone.model.Skill updatedSkill) {
 
         boolean editSkillStatus = skillDao.update(updatedSkill);
     }
@@ -71,6 +70,16 @@ public class SkillTrackerApp implements SkillTracker{
     public void viewAssociate(int associateId){
         Associate associate = associateDao.get(associateId);
         associate.viewDetails();
+        List<Skill> skills = associate.getSkills();
+//        System.out.println("no.of skills"+skills.size());
+        if (!skills.isEmpty()) {
+            System.out.println("Skills:");
+            for (Skill skill : skills) {
+                System.out.println(skill.getName() + ": " + skill.getDescription());
+            }
+        } else {
+            System.out.println("he/she have no skills.");
+        }
     }
 
     public void searchAssociateByName(String name){
@@ -112,7 +121,7 @@ public class SkillTrackerApp implements SkillTracker{
         skills = skillDao.getall();
         associates = associateDao.getall();
         for (Associate associate : associates) {
-            for(Skill skill : skills){
+            for(com.indium.capstone.model.Skill skill : skills){
                 if(associate.getId()==skill.getUserId()){
                     associate.addSkill(skill);
                 }
@@ -128,7 +137,7 @@ public class SkillTrackerApp implements SkillTracker{
         skills = skillDao.getall();
         associates = associateDao.getall();
         for (Associate associate : associates) {
-            for(Skill skill : skills){
+            for(com.indium.capstone.model.Skill skill : skills){
                 if(associate.getId()==skill.getUserId()){
                     associate.addSkill(skill);
                 }
@@ -150,7 +159,7 @@ public class SkillTrackerApp implements SkillTracker{
         skills = skillDao.getall();
         associates = associateDao.getall();
         for (Associate associate : associates) {
-            for(Skill skill : skills){
+            for(com.indium.capstone.model.Skill skill : skills){
                 if(associate.getId()==skill.getUserId()){
                     associate.addSkill(skill);
                 }

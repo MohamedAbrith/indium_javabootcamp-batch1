@@ -70,9 +70,6 @@ public class Associate {
     }
 
     public void viewDetails(List<Skill> allSkills) {
-//        List<Skill> allskills;
-//        allskills = skillDao.getall();
-//        System.out.println(skills);
         System.out.println("Associate ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
@@ -82,14 +79,12 @@ public class Associate {
         System.out.println("Skills: ");
         for (Skill skill : allSkills) {
             if(skill.getUserId()==id){
-//                System.out.println(skill.getUserId());
                 System.out.println("  Skill ID: " + skill.getSkillId() + ", Name: " + skill.getName());
             }
         }
     }
 
     public void viewDetails() {
-//        skills = skillDao.getall();
         System.out.println("Associate ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
@@ -98,9 +93,7 @@ public class Associate {
         System.out.println("Location: " + location);
         System.out.println("Skills: ");
         for (Skill skill : skills) {
-//            if(skill.getId()==id){
                 System.out.println("  Skill ID: " + skill.getId() + ", Name: " + skill.getName());
-//            }
         }
     }
 

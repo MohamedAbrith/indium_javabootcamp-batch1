@@ -1,12 +1,11 @@
 import com.indium.capstone.model.Associate;
-import com.indium.capstone.model.Skill;
-import com.indium.capstone.service.SkillTrackerApp;
+import com.indium.capstone.service.AssociateSkillImpl;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        SkillTrackerApp app = new SkillTrackerApp();
+        AssociateSkillImpl app = new AssociateSkillImpl();
         Scanner scanner = new Scanner(System.in);
         int skillId =1;
 
@@ -83,7 +82,7 @@ public class Main {
                     String skillCategory = scanner.next();
                     System.out.print("Enter Skill Experience (months): ");
                     int skillExperience = scanner.nextInt();
-                    Skill newSkill = new Skill(addSkillAssociateId,skillName, skillDescription, skillCategory, skillExperience);
+                    com.indium.capstone.model.Skill newSkill = new com.indium.capstone.model.Skill(addSkillAssociateId,skillName, skillDescription, skillCategory, skillExperience);
                     app.addSkillToAssociate(addSkillAssociateId, newSkill);
                     System.out.println("Skill added to associate successfully!");
                     skillId++;
@@ -99,7 +98,7 @@ public class Main {
                     skillCategory = scanner.next();
                     System.out.print("Enter Skill Experience (months): ");
                     skillExperience = scanner.nextInt();
-                    Skill updatedSkill = new Skill(skillName, skillDescription, skillCategory, skillExperience,editSkillId,skillDescription);
+                    com.indium.capstone.model.Skill updatedSkill = new com.indium.capstone.model.Skill(skillName, skillDescription, skillCategory, skillExperience,editSkillId,skillDescription);
                     app.editSkill(editSkillId, updatedSkill);
                     skillId++;
                     System.out.println("Skill edited successfully!");
@@ -119,7 +118,7 @@ public class Main {
                     System.out.println("1.search associate by associate name");
                     System.out.println("2.search associate by associate id");
                     System.out.println("3.search associate by location");
-                    System.out.println("4.search associate by skills");
+//                    System.out.println("4.search associate by skills");
                     int searchChoice = scanner.nextInt();
                     switch (searchChoice){
                         case 1 :{
